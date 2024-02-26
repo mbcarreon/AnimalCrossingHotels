@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Apple Blossom Cottage",
+    "image": "/src/assets/images/AppleHouseNH.png",
+    "description": "Welcome to Apple Blossom Cottage, where the charm of apple-themed decorations fills every corner. Immerse yourself in the rustic allure of apple orchards and indulge in the sweet aroma of freshly baked apple pies.",
+    "backgroundColor": "#ff5d82",
+    "color": "#ffffff"
+  },
+  {
+    "name": "Stitches Playful Haven",
+    "image": "/src/assets/images/StitchesHouseNH.png",
+    "description": "Step into Stitches Playful Haven, a whimsical realm filled with colorful fabrics and playful designs. A cheerful retreat awaits anyone who adores all things cute and cuddly.",
+    "backgroundColor": "#ffaa35",
+    "color": "#8d4702"
+  },
+  {
+    "name": "Chai Serenity Hut",
+    "image": "/src/assets/images/ChaiHouseNH.png",
+    "description": "Embark on a journey of tranquility at Chai Serenity Hut. Let the soothing aroma of warm chai tea envelop you as you relax in an atmosphere adorned with exotic patterns and cozy cushions.",
+    "backgroundColor": "#cefeff",
+    "color": "#50bae4"
+  },
+  {
+    "name": "Pekoe Zen Retreat",
+    "image": "/src/assets/images/PekoeHouseNH.png",
+    "description": "Find peace and serenity at Pekoe Zen Retreat, inspired by Japanese aesthetics. Immerse yourself in the tranquil ambiance and elegant decor, making it the perfect refuge for harmony seekers.",
+    "backgroundColor": "#ffffff",
+    "color": "#7d7d7d"
+  },
+  {
+    "name": "Teddy's Snug Cabin",
+    "image": "/src/assets/images/TeddyHouseNH.png",
+    "description": "Experience the warmth and comfort of Teddy's Snug Cabin, where plush teddy bears and warm blankets create an atmosphere of nostalgia and tranquility.",
+    "backgroundColor": "#ff7814",
+    "color": "#feebab"
+  },
+  {
+    "name": "Willow's Dreamy Sanctuary",
+    "image": "/src/assets/images/WillowHouseNH.png",
+    "description": "Enter Willow's Dreamy Sanctuary and immerse yourself in a world of enchantment. Let the soft glow of fairy lights and the delicate scent of wildflowers transport you to a cozy retreat.",
+    "backgroundColor": "#fdfc8f",
+    "color": "#8f996a"
+  }
+]
