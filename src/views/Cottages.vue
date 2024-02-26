@@ -157,8 +157,9 @@ a {
   padding: 8px 24px;
   background-color: #fffbE7;
   border-radius: 100px;
-  box-shadow: 0px 4px #907c57;
-  color: #907c57;
+  box-shadow: 0px 4px #63563b;
+  color: #ffffff;
+  background-color: #907c57;
   font-family: 'Seurat';
   font-size: 1.3rem;
   letter-spacing: .5px;
