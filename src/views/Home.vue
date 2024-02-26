@@ -1,7 +1,11 @@
 <script>
   import cottageData from "../assets/data/cottages.json";
   import attractionData from "../assets/data/attractions.json";
+  import PlaceContainer from "../components/PlaceContainer.vue";
   export default {
+    components: {
+      PlaceContainer
+    },
     data() {
       return {
         cottages: cottageData,
@@ -82,20 +86,7 @@
     <div class="container flex-col" id="cottages">
       <h2 class="custom-text">Cottages</h2>
       <div class="container flex-row">
-        <div class="left-container">
-          <img :src="cottages[currentCottageIndex].image" width="100%" />
-        </div>
-        <div class="right-container">
-          <h3
-            :style="{
-              'background-color': cottages[currentCottageIndex].backgroundColor,
-              color: cottages[currentCottageIndex].color,
-            }"
-          >
-            {{ cottages[currentCottageIndex].name }}
-          </h3>
-          <p>{{ cottages[currentCottageIndex].description }}</p>
-        </div>
+          <PlaceContainer :place="cottages[currentCottageIndex]" />
       </div>
       <div class="indicators">
         <span
@@ -132,21 +123,7 @@
     <div class="container flex-col" id="attractions">
       <h2 class="custom-text">Attractions</h2>
       <div class="container flex-row">
-        <div class="left-container">
-          <img :src="attractions[currentAttractionIndex].image" width="100%" />
-        </div>
-        <div class="right-container">
-          <h3
-            :style="{
-              'background-color':
-                attractions[currentAttractionIndex].backgroundColor,
-              color: attractions[currentAttractionIndex].color,
-            }"
-          >
-            {{ attractions[currentAttractionIndex].name }}
-          </h3>
-          <p>{{ attractions[currentAttractionIndex].description }}</p>
-        </div>
+        <PlaceContainer :place="attractions[currentAttractionIndex]" />
       </div>
       <div class="indicators">
         <span
@@ -214,36 +191,6 @@ p {
   transition: 0.25s;
 }
 
-#cottages .left-container {
-  width: 250px;
-}
-
-#attractions .left-container {
-  width: 250px;
-  margin: auto;
-}
-
-.right-container h3 {
-  width: max-content;
-  margin: 0 0px -16px 24px;
-  padding: 8px 24px;
-  border-radius: 100px;
-  font-family: "Seurat";
-  font-size: 1.3rem;
-  letter-spacing: 0.8px;
-  position: relative;
-  z-index: 1;
-}
-
-.right-container p {
-  width: 500px;
-  height: max-content;
-  padding: 40px 40px 32px 40px;
-  border-radius: 100px;
-  text-align: center;
-  position: relative;
-  z-index: 0;
-}
 .indicators {
   display: flex;
   justify-content: center;

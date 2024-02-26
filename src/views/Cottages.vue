@@ -1,6 +1,10 @@
 <script>
 import cottageData from "../assets/data/cottages.json";
+import PlaceContainer from "../components/PlaceContainer.vue";
 export default {
+  components: {
+    PlaceContainer
+  },
   data() {
     return {
       cottages: cottageData
@@ -14,13 +18,7 @@ export default {
     <div class="container flex-col">
       <h2 class="custom-text">Cottages</h2>
       <div class="container flex-row" v-for="(cottage, index) in cottages" :key="index">
-        <div class="left-container">
-          <img :src="cottage.image" width="100%">
-        </div>
-        <div class="right-container">
-          <h3 :style="{ 'background-color': cottage.backgroundColor, 'color': cottage.color }">{{ cottage.name }}</h3>
-          <p>{{ cottage.description }}</p>
-        </div>
+        <PlaceContainer :place="cottage" />
       </div>
     </div>
     <div class="container flex-col">
@@ -49,13 +47,6 @@ export default {
     1px 9px 0px #674d2b,
     1px 10px 0px #674d2b;
 }
-
-p {
-  font-size: 1rem;
-  letter-spacing: .5px;
-  background-color: #fffbE7;
-}
-
 .content {
   display: flex;
   flex-direction: column;
@@ -81,32 +72,6 @@ p {
   display: flex;
   flex-direction: row;
   gap: 56px;
-}
-
-.left-container {
-  width: 250px;
-}
-
-.right-container h3 {
-  width: max-content;
-  margin: 0 0px -16px 24px;
-  padding: 8px 24px;
-  border-radius: 100px;
-  font-family: 'Seurat';
-  font-size: 1.3rem;
-  letter-spacing: .8px;
-  position: relative;
-  z-index: 1;
-}
-
-.right-container p {
-  width: 500px;
-  height: max-content;
-  padding: 40px 40px 32px 40px;
-  border-radius: 100px;
-  text-align: center;
-  position: relative;
-  z-index: 0;
 }
 
 a {
