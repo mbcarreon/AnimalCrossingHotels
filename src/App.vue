@@ -15,7 +15,5 @@ import Nav from './components/Nav.vue'
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  padding: 88px 0;
 }
 </style>

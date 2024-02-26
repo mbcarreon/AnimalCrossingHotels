@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
     <RouterLink to="/" active-class="active">Home</RouterLink>
     <RouterLink to="/cottages" active-class="active">Cottages</RouterLink>
     <RouterLink to="/gallery" active-class="active">Gallery</RouterLink>
-    <RouterLink to="/contact" active-class="active">Contact</RouterLink>
+    <RouterLink to="/about" active-class="active">About</RouterLink>
   </div>
 </template>
 
@@ -70,6 +70,7 @@ a {
   letter-spacing: .5px;
   text-decoration: none;
   transition: .25s;
+  cursor: pointer;
 }
 
 a:hover {

@@ -1,51 +1,53 @@
 <template>
-  <div class="container flex-col" id="headline">
+  <div class="content">
+    <div class="container flex-col" id="headline">
     <img src="/src/assets/images/AnimalCrossingEmblem.png" width="500px">
-  </div>
-  <div class="container flex-col" id="description">
-    <p>
-      Escape to the whimsical world of Animal Crossing with enchanting cottage reservations! Indulge in the charm of our themed cottages nestled amidst lush landscapes and friendly villagers. Book your stay today and experience the magic of Animal Crossing in the comfort of your own cottage hideaway!
-    </p>
-  </div>
-  <div class="container flex-col" id="cottages">
-    <h2 class="custom-text">Cottages</h2>
-    <div class="container flex-row">
-      <div class="left-container">
-        <img :src="cottages[currentCottageIndex].image" width="100%">
-      </div>
-      <div class="right-container">
-        <h3 :style="{ 'background-color': cottages[currentCottageIndex].backgroundColor, 'color': cottages[currentCottageIndex].color }">{{ cottages[currentCottageIndex].name }}</h3>
-        <p>{{ cottages[currentCottageIndex].description }}</p>
-      </div>
     </div>
-    <div class="indicators">
-      <span v-for="(cottage, index) in cottages" :key="index" :class="{ active: index === currentCottageIndex }" @click="jumpToCottage(index)"></span>
+    <div class="container flex-col" id="description">
+      <p>
+        Escape to the whimsical world of Animal Crossing with enchanting cottage reservations! Indulge in the charm of our themed cottages nestled amidst lush landscapes and friendly villagers. Book your stay today and experience the magic of Animal Crossing in the comfort of your own cottage hideaway!
+      </p>
     </div>
-  </div>
-  <div class="container flex-col">
-    <h2 class="custom-text">Gallery</h2>
-    <div class="container flex-row" id="gallery">
-      <div class="image"><img src="/src/assets/images/Scene01.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene02.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene03.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene04.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene05.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene06.jpg" width="100%"></div>
-    </div>
-  </div>
-  <div class="container flex-col" id="attractions">
-    <h2 class="custom-text">Attractions</h2>
-    <div class="container flex-row">
-      <div class="left-container">
-        <img :src="attractions[currentAttractionIndex].image" width="100%">
+    <div class="container flex-col" id="cottages">
+      <h2 class="custom-text">Cottages</h2>
+      <div class="container flex-row">
+        <div class="left-container">
+          <img :src="cottages[currentCottageIndex].image" width="100%">
+        </div>
+        <div class="right-container">
+          <h3 :style="{ 'background-color': cottages[currentCottageIndex].backgroundColor, 'color': cottages[currentCottageIndex].color }">{{ cottages[currentCottageIndex].name }}</h3>
+          <p>{{ cottages[currentCottageIndex].description }}</p>
+        </div>
       </div>
-      <div class="right-container">
-        <h3 :style="{ 'background-color': attractions[currentAttractionIndex].backgroundColor, 'color': attractions[currentAttractionIndex].color }">{{ attractions[currentAttractionIndex].name }}</h3>
-        <p>{{ attractions[currentAttractionIndex].description }}</p>
+      <div class="indicators">
+        <span v-for="(cottage, index) in cottages" :key="index" :class="{ active: index === currentCottageIndex }" @click="jumpToCottage(index)"></span>
       </div>
     </div>
-    <div class="indicators">
-      <span v-for="(attraction, index) in attractions" :key="index" :class="{ active: index === currentAttractionIndex }" @click="jumpToAttraction(index)"></span>
+    <div class="container flex-col">
+      <h2 class="custom-text">Gallery</h2>
+      <div class="container flex-row" id="gallery">
+        <div class="image"><img src="/src/assets/images/Scene01.jpg" width="100%"></div>
+        <div class="image"><img src="/src/assets/images/Scene02.jpg" width="100%"></div>
+        <div class="image"><img src="/src/assets/images/Scene03.jpg" width="100%"></div>
+        <div class="image"><img src="/src/assets/images/Scene04.jpg" width="100%"></div>
+        <div class="image"><img src="/src/assets/images/Scene05.jpg" width="100%"></div>
+        <div class="image"><img src="/src/assets/images/Scene06.jpg" width="100%"></div>
+      </div>
+    </div>
+    <div class="container flex-col" id="attractions">
+      <h2 class="custom-text">Attractions</h2>
+      <div class="container flex-row">
+        <div class="left-container">
+          <img :src="attractions[currentAttractionIndex].image" width="100%">
+        </div>
+        <div class="right-container">
+          <h3 :style="{ 'background-color': attractions[currentAttractionIndex].backgroundColor, 'color': attractions[currentAttractionIndex].color }">{{ attractions[currentAttractionIndex].name }}</h3>
+          <p>{{ attractions[currentAttractionIndex].description }}</p>
+        </div>
+      </div>
+      <div class="indicators">
+        <span v-for="(attraction, index) in attractions" :key="index" :class="{ active: index === currentAttractionIndex }" @click="jumpToAttraction(index)"></span>
+      </div>
     </div>
   </div>
 </template>
@@ -167,11 +169,6 @@ export default {
 </script>
 
 <style scoped>
-
-h1 {
-  font-size: 3.5rem;
-}
-
 .custom-text {
   margin-bottom: 48px;
   color: #eed25a;
@@ -199,6 +196,13 @@ p {
   background-color: #fffbE7;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 88px;
+  padding: 80px 0;
+}
+
 .container {
   width: 80%;
   margin: auto;
@@ -215,12 +219,20 @@ p {
 .flex-row {
   display: flex;
   flex-direction: row;
-  gap: 48px;
+  gap: 56px;
+}
+
+#description p {
+  width: 80%;
+  padding: 32px 48px;
+  border-radius: 100px;
+  font-size: 1rem;
+  text-align: center;
+  transition: .25s;
 }
 
 #cottages .left-container {
-  width: 230px;
-  margin: auto;
+  width: 250px;
 }
 
 #attractions .left-container {
@@ -249,7 +261,6 @@ p {
   position: relative;
   z-index: 0;
 }
-
 .indicators {
     display: flex;
     justify-content: center;
@@ -266,46 +277,32 @@ p {
 }
 
 .indicators span.active {
-  outline: 4px solid #2cb8AA;
-}
-
-#headline {
-  padding-bottom: 48px;
-}
-
-#description p {
-  width: 80%;
-  padding: 32px 48px;
-  border-radius: 200px;
-  font-size: 1rem;
-  text-align: center;
-  transition: .25s;
-  cursor: pointer;
+  outline: 4px solid #674d2b;
 }
 
 #gallery {
   flex-wrap: wrap;
   height: max-content;
-  gap: 32px;
+  gap: 56px;
 }
 
 #gallery .image {
   width: max-content;
-  height: 150px;
-  border: 2px solid #fffbE7;
-  border-radius: 30px;
+  height: 200px;
+  padding: 16px 16px 48px 16px;
+  background-color: #fffbE7;
   overflow: hidden;
   cursor: pointer;
-  transition: .25s;
+  transition: .5s;
 }
 
-#gallery .image img {
+#gallery img {
   width: auto;
   height: 100%;
   display: block;
 }
 
 #gallery .image:hover {
-  transform: scale(1.05);
+  transform: scale(1.15);
 }
 </style>
