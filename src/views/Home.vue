@@ -1,54 +1,207 @@
 <template>
-  <div>
-    <div class="container flex-col" id="headline">
-      <img src="/src/assets/images/AnimalCrossingEmblem.png" width="500px">
-    </div>
-    <div class="container flex-col text-center" id="description">
-      <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</h4>
-    </div>
-    <div class="container flex-col" id="houses">
-      <h2>Houses</h2>
-      <div class="container flex-row">
-        <button class="prev-button">&lt;</button>
-        <div class="flex-row">
-          <div class="left-container">
-            <img src="/src/assets/images/AppleHouseNH.png" width="100%">
-          </div>
-          <div class="right-container">
-            <h3>House Name</h3>
-            <div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <button class="next-button">&gt;</button>
+  <div class="container flex-col" id="headline">
+    <img src="/src/assets/images/AnimalCrossingEmblem.png" width="500px">
+  </div>
+  <div class="container flex-col" id="description">
+    <p>
+      Escape to the whimsical world of Animal Crossing with enchanting cottage reservations! Indulge in the charm of our themed cottages nestled amidst lush landscapes and friendly villagers. Book your stay today and experience the magic of Animal Crossing in the comfort of your own cottage hideaway!
+    </p>
+  </div>
+  <div class="container flex-col" id="cottages">
+    <h2 class="custom-text">Cottages</h2>
+    <div class="container flex-row">
+      <div class="left-container">
+        <img :src="cottages[currentCottageIndex].image" width="100%">
+      </div>
+      <div class="right-container">
+        <h3 :style="{ 'background-color': cottages[currentCottageIndex].backgroundColor, 'color': cottages[currentCottageIndex].color }">{{ cottages[currentCottageIndex].name }}</h3>
+        <p>{{ cottages[currentCottageIndex].description }}</p>
       </div>
     </div>
-    <div class="container flex-col" id="attractions">
-      <h2>Attractions</h2>
-      <div class="container flex-row">
-        <button class="prev-button">&lt;</button>
-        <div class="flex-row">
-          <div class="left-container">
-            <img src="" width="100%">
-          </div>
-          <div class="right-container">
-            <h3>Attraction Name</h3>
-            <div>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </div>
-          </div>
-        </div>
-        <button class="next-button">&gt;</button>
+    <div class="indicators">
+      <span v-for="(cottage, index) in cottages" :key="index" :class="{ active: index === currentCottageIndex }" @click="jumpToCottage(index)"></span>
+    </div>
+  </div>
+  <div class="container flex-col">
+    <h2 class="custom-text">Gallery</h2>
+    <div class="container flex-row" id="gallery">
+      <div class="image"><img src="/src/assets/images/Scene01.jpg" width="100%"></div>
+      <div class="image"><img src="/src/assets/images/Scene02.jpg" width="100%"></div>
+      <div class="image"><img src="/src/assets/images/Scene03.jpg" width="100%"></div>
+      <div class="image"><img src="/src/assets/images/Scene04.jpg" width="100%"></div>
+      <div class="image"><img src="/src/assets/images/Scene05.jpg" width="100%"></div>
+      <div class="image"><img src="/src/assets/images/Scene06.jpg" width="100%"></div>
+    </div>
+  </div>
+  <div class="container flex-col" id="attractions">
+    <h2 class="custom-text">Attractions</h2>
+    <div class="container flex-row">
+      <div class="left-container">
+        <img :src="attractions[currentAttractionIndex].image" width="100%">
       </div>
+      <div class="right-container">
+        <h3 :style="{ 'background-color': attractions[currentAttractionIndex].backgroundColor, 'color': attractions[currentAttractionIndex].color }">{{ attractions[currentAttractionIndex].name }}</h3>
+        <p>{{ attractions[currentAttractionIndex].description }}</p>
+      </div>
+    </div>
+    <div class="indicators">
+      <span v-for="(attraction, index) in attractions" :key="index" :class="{ active: index === currentAttractionIndex }" @click="jumpToAttraction(index)"></span>
     </div>
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      cottages: [
+        {
+          name: "Apple Blossom Cottage",
+          image: "/src/assets/images/AppleHouseNH.png",
+          description: "Welcome to Apple Blossom Cottage, where the charm of apple-themed decorations fills every corner. Immerse yourself in the rustic allure of apple orchards and indulge in the sweet aroma of freshly baked apple pies.",
+          backgroundColor: "#ff5d82",
+          color: "#ffffff"
+        },
+        {
+          name: "Stitches Playful Haven",
+          image: "/src/assets/images/StitchesHouseNH.png",
+          description: "Step into Stitches Playful Haven, a whimsical realm filled with colorful fabrics and playful designs. A cheerful retreat awaits anyone who adores all things cute and cuddly.",
+          backgroundColor: "#ffaa35",
+          color: "#8d4702"
+        },
+        {
+          name: "Chai Serenity Hut",
+          image: "/src/assets/images/ChaiHouseNH.png",
+          description: "Embark on a journey of tranquility at Chai Serenity Hut. Let the soothing aroma of warm chai tea envelop you as you relax in an atmosphere adorned with exotic patterns and cozy cushions.",
+          backgroundColor: "#cefeff",
+          color: "#50bae4"
+        },
+        {
+          name: "Pekoe Zen Retreat",
+          image: "/src/assets/images/PekoeHouseNH.png",
+          description: "Find peace and serenity at Pekoe Zen Retreat, inspired by Japanese aesthetics. Immerse yourself in the tranquil ambiance and elegant decor, making it the perfect refuge for harmony seekers.",
+          backgroundColor: "#ffffff",
+          color: "#7d7d7d"
+        },
+        {
+          name: "Teddy's Snug Cabin",
+          image: "/src/assets/images/TeddyHouseNH.png",
+          description: "Experience the warmth and comfort of Teddy's Snug Cabin, where plush teddy bears and warm blankets create an atmosphere of nostalgia and tranquility.",
+          backgroundColor: "#ff7814",
+          color: "#feebab"
+        },
+        {
+          name: "Willow's Dreamy Sanctuary",
+          image: "/src/assets/images/WillowHouseNH.png",
+          description: "Enter Willow's Dreamy Sanctuary and immerse yourself in a world of enchantment. Let the soft glow of fairy lights and the delicate scent of wildflowers transport you to a cozy retreat.",
+          backgroundColor: "#fdfc8f",
+          color: "#8f996a"
+        }
+      ],
+      attractions: [
+        {
+          name: "Able Sisters",
+          image: "/src/assets/images/AbleSistersNH.png",
+          description: "Step into the Able Sisters' tailor shop and immerse yourself in a world of fashion and creativity. With their curated collection of clothing and accessories, you can express your unique style and personality, turning every stroll through the charming cottages of Animal Crossing into a runway-worthy event.",
+          backgroundColor: "#c2dc64",
+          color: "#7c973A"
+        }
+      ],
+      currentCottageIndex: 0,
+      currentAttractionIndex: 0,
+      cottageIntervalId: null,
+      attractionIntervalId: null
+    };
+  },
+  methods: {
+    startCottageCarousel() {
+      this.cottageIntervalId = setInterval(() => {
+        this.nextCottage();
+      }, 3000);
+    },
+    startAttractionCarousel() {
+      this.attractionIntervalId = setInterval(() => {
+        this.nextAttraction();
+      }, 3000);
+    },
+    nextCottage() {
+      if (this.currentCottageIndex < this.cottages.length - 1) {
+        this.currentCottageIndex++;
+      } else {
+        this.currentCottageIndex = 0;
+      }
+      console.log('Next cottage index:', this.currentCottageIndex);
+    },
+    nextAttraction() {
+      if (this.currentAttractionIndex < this.attractions.length - 1) {
+        this.currentAttractionIndex++;
+      } else {
+        this.currentAttractionIndex = 0;
+      }
+      console.log('Next attraction index:', this.currentAttractionIndex);
+    },
+    stopCottageCarousel() {
+      clearInterval(this.cottageIntervalId);
+    },
+    stopAttractionCarousel() {
+      clearInterval(this.attractionIntervalId);
+    },
+    jumpToCottage(index) {
+      this.currentCottageIndex = index;
+      this.stopCottageCarousel();
+    },
+    jumpToAttraction(index) {
+      this.currentAttractionIndex = index;
+      this.stopAttractionCarousel();
+    }
+  },
+  mounted() {
+    this.startCottageCarousel();
+    this.startAttractionCarousel();
+  },
+  beforeUnmount() {
+    this.stopCottageCarousel();
+    this.stopAttractionCarousel();
+  }
+};
+</script>
+
 <style scoped>
+
+h1 {
+  font-size: 3.5rem;
+}
+
+.custom-text {
+  margin-bottom: 48px;
+  color: #eed25a;
+  font-family: 'Fink Heavy';
+  font-size: 6rem;
+  text-shadow:
+    1px 0px 0px #674d2b,
+    -1px 0px 0px #674d2b,
+    1px 1px 0px #674d2b,
+    0px -1px 0px #674d2b,
+    1px 2px 0px #674d2b,
+    1px 3px 0px #674d2b,
+    1px 4px 0px #674d2b,
+    1px 5px 0px #674d2b,
+    1px 6px 0px #674d2b,
+    1px 7px 0px #674d2b,
+    1px 8px 0px #674d2b,
+    1px 9px 0px #674d2b,
+    1px 10px 0px #674d2b;
+}
+
+p {
+  font-size: 1rem;
+  letter-spacing: .5px;
+  background-color: #fffbE7;
+}
+
 .container {
+  width: 80%;
+  margin: auto;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -62,99 +215,97 @@
 .flex-row {
   display: flex;
   flex-direction: row;
+  gap: 48px;
 }
 
-.left-container {
-  width: 200px;
-  margin-right: 56px;
+#cottages .left-container {
+  width: 230px;
+  margin: auto;
 }
 
-.right-container {
-  width: 500px;
+#attractions .left-container {
+  width: 250px;
+  margin: auto;
 }
 
-.text-center {
-  text-align: center;
-}
-
-h1 {
-  font-size: 3.5rem;
-}
-
-h2 {
-  color: #eed25a;
-  font-family: 'Fink Heavy';
-  font-size: 3.5rem;
-  text-shadow:
-    -1px -1px 0 #d7af3a,
-    1px -1px 0 #917627,
-    -1px 1px 0 #917627,
-    1px 1px 0 #917627,
-    4px 4px 0px rgba(124, 93, 53, 1);
-  margin-bottom: 32px;
-}
-
-h3 {
-  font-family: 'Fink Heavy';
-  font-size: 2rem;
-  margin-bottom: 16px;
-}
-
-h4 {
-  font-size: 1rem;
-}
-
-p {
-  font-size: .85rem;
-  margin-bottom: 16px;
-}
-
-#headline,
-#description,
-#houses,
-#attractions {
-  padding: 56px 88px;
-}
-
-.content {
-  display: none;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 48px 32px 48px;
-}
-
-.prev-button {
-  margin-right: 64px;
-}
-
-.next-button {
-  margin-left: 64px;
-}
-
-.prev-button,
-.next-button {
-  outline: none;
+.right-container h3 {
   width: max-content;
-  height: max-content;
-  padding: 8px 20px;
-  background-color: #74664b;
-  border: none;
+  margin: 0 0px -16px 24px;
+  padding: 8px 24px;
   border-radius: 100px;
-  box-shadow: 0px 4px 0px #352e22;
-  color: #fffae4;
-  font-family:
-    'Seurat',
-    sans-serif;
+  font-family: 'Seurat';
+  font-size: 1.3rem;
+  letter-spacing: .8px;
+  position: relative;
+  z-index: 1;
+}
+
+.right-container p {
+  width: 500px;
+  height: max-content;
+  padding: 40px 40px 32px 40px;
+  border-radius: 100px;
+  text-align: center;
+  position: relative;
+  z-index: 0;
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+  }
+
+.indicators span {
+  width: 14px;
+  height: 14px;
+  background-color: #fffbE7;
+  border-radius: 50%;
+  margin: 0 8px;
+  cursor: pointer;
+}
+
+.indicators span.active {
+  outline: 4px solid #2cb8AA;
+}
+
+#headline {
+  padding-bottom: 48px;
+}
+
+#description p {
+  width: 80%;
+  padding: 32px 48px;
+  border-radius: 200px;
   font-size: 1rem;
+  text-align: center;
   transition: .25s;
   cursor: pointer;
 }
 
-.prev-button:hover,
-.next-button:hover {
-  transform: scale(1.2);
+#gallery {
+  flex-wrap: wrap;
+  height: max-content;
+  gap: 32px;
+}
+
+#gallery .image {
+  width: max-content;
+  height: 150px;
+  border: 2px solid #fffbE7;
+  border-radius: 30px;
+  overflow: hidden;
+  cursor: pointer;
   transition: .25s;
+}
+
+#gallery .image img {
+  width: auto;
+  height: 100%;
+  display: block;
+}
+
+#gallery .image:hover {
+  transform: scale(1.05);
 }
 </style>

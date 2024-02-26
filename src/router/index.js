@@ -1,7 +1,7 @@
 //Defining routing options
 import { createRouter, createWebHistory } from "vue-router"
 import Home from "../views/Home.vue"
-import Houses from "../views/Houses.vue"
+import Cottages from "../views/Cottages.vue"
 import Gallery from "../views/Gallery.vue"
 import Contact from "../views/Contact.vue"
 
@@ -14,9 +14,9 @@ const router = createRouter({
             component: Home
         },
         {
-            path: "/houses",
-            name: "houses",
-            component: Houses
+            path: "/cottages",
+            name: "cottages",
+            component: Cottages
         },
         {
             path: "/gallery",
