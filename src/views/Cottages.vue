@@ -1,6 +1,8 @@
 <script>
 import cottageData from "../assets/data/cottages.json";
 import PlaceContainer from "../components/PlaceContainer.vue";
+import $ from 'jquery';
+
 export default {
   components: {
     PlaceContainer
@@ -9,9 +11,44 @@ export default {
     return {
       cottages: cottageData
     };
+  },
+  mounted() {
+    // Call floatedLabel when the component is mounted
+    this.$nextTick(() => {
+      this.initFloatLabel();
+    });
+  },
+  methods: {
+    initFloatLabel() {
+      // Iterate over each form control and apply floated label effect
+      const formControls = this.$el.querySelectorAll('.form-control');
+      formControls.forEach(input => {
+        this.floatedLabel(input);
+        input.addEventListener('input', () => {
+          this.floatedLabel(input);
+        });
+      });
+    },
+    floatedLabel(input) {
+      // Access the input element's parent form group
+      const field = input.closest('.form-group');
+      if (input.value) {
+        field.classList.add('input-not-empty');
+      } else {
+        field.classList.remove('input-not-empty');
+      }
+    }
   }
 };
+
+
+
+
 </script>
+
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"></link>
+
+
 
 <template>
   <div class="content">
@@ -22,9 +59,90 @@ export default {
       </div>
     </div>
     <div class="container flex-col">
-      <a>Book Now</a>
+
     </div>
   </div>
+
+  <div id="booking" class="section">
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<div class="form-header">
+							<h1>Book Your Cottage</h1>
+						</div>
+						<form>
+							
+							<div class="form-group">
+								<input class="form-control" type="text">
+								<span class="form-label">Full Name</span>
+							</div>
+							<div class="form-group">
+								<input class="form-control" type="text">
+								<span class="form-label">Email</span>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="date">
+										<span class="form-label">Check In</span>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<input class="form-control" type="date">
+										<span class="form-label">Check Out</span>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div class="form-group">
+                    <h5>Cottage</h5>
+										<select class="form-control">
+											<option>Cottage 1</option>
+											<option>Cottage 2</option>
+											<option>Cottage 3</option>
+										</select>
+										<span class="select-arrow"></span>
+								
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+                    <h5>Adults</h5>
+										<select class="form-control">
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+										</select>
+										<span class="select-arrow"></span>
+										
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="form-group">
+                    <h5>Children</h5>
+										<select class="form-control">
+											<option>0</option>
+											<option>1</option>
+											<option>2</option>
+										</select>
+										<span class="select-arrow"></span>
+								
+									</div>
+								</div>
+							</div>
+							<div class="form-btn">
+								<button class="submit-btn">Book</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </template>
 
 <style scoped>
