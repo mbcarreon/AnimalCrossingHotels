@@ -1,6 +1,7 @@
 <script>
 import cottageData from "../assets/data/cottages.json";
 import PlaceContainer from "../components/PlaceContainer.vue";
+import Swal from "sweetalert2";
 import $ from 'jquery';
 
 export default {
@@ -9,7 +10,14 @@ export default {
   },
   data() {
     return {
-      cottages: cottageData
+      cottages: cottageData,
+      fullName: "",
+      email: "",
+      checkIn: "",
+      checkOut: "",
+      cottage: "",
+      adults: 0,
+      children: 0
     };
   },
   mounted() {
@@ -37,18 +45,44 @@ export default {
       } else {
         field.classList.remove('input-not-empty');
       }
+    },
+    submit(event) {
+      if (
+      this.fullName &&
+      this.email &&
+      this.checkIn &&
+      this.checkOut &&
+      this.cottage &&
+      this.adults !== null &&
+      this.children !== null 
+      ) {
+        Swal.fire({
+        icon: "success",
+        title: "Reservation Successful",
+        html: `
+          <b>Full Name:</b> ${this.fullName}<br>
+          <b>Email:</b> ${this.email}<br>
+          <b>Check In:</b> ${this.checkIn}<br>
+          <b>Check Out:</b> ${this.checkOut}<br>
+          <b>Cottage:</b> ${this.cottage}<br>
+          <b>No. of Adults:</b> ${this.adults}<br>
+          <b>No. of Children:</b> ${this.children}
+        `
+        })
+      } else {
+        Swal.fire({
+          icon: "warning",
+          title: "Please fill ALL fields to reserve."
+        })
+      }
+      event.preventDefault();
     }
   }
 };
 
-
-
-
 </script>
 
 <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet"></link>
-
-
 
 <template>
   <div class="content">
@@ -74,23 +108,23 @@ export default {
 						<form>
 							
 							<div class="form-group">
-								<input class="form-control" type="text">
+								<input class="form-control" type="text" v-model="fullName">
 								<span class="form-label">Full Name</span>
 							</div>
 							<div class="form-group">
-								<input class="form-control" type="text">
+								<input class="form-control" type="text" v-model="email">
 								<span class="form-label">Email</span>
 							</div>
 							<div class="row">
 								<div class="col-md-6">
 									<div class="form-group">
-										<input class="form-control" type="date">
+										<input class="form-control" type="date" v-model="checkIn">
 										<span class="form-label">Check In</span>
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-group">
-										<input class="form-control" type="date">
+										<input class="form-control" type="date" v-model="checkOut">
 										<span class="form-label">Check Out</span>
 									</div>
 								</div>
@@ -99,10 +133,8 @@ export default {
 								<div class="col-md-4">
 									<div class="form-group">
                     <h5>Cottage</h5>
-										<select class="form-control">
-											<option>Cottage 1</option>
-											<option>Cottage 2</option>
-											<option>Cottage 3</option>
+										<select class="form-control" v-model="cottage">
+											<option v-for="(cottage, index) in cottages">{{cottage.name}}</option>
 										</select>
 										<span class="select-arrow"></span>
 								
@@ -111,7 +143,7 @@ export default {
 								<div class="col-md-4">
 									<div class="form-group">
                     <h5>Adults</h5>
-										<select class="form-control">
+										<select class="form-control" v-model="adults">
 											<option>1</option>
 											<option>2</option>
 											<option>3</option>
@@ -123,7 +155,7 @@ export default {
 								<div class="col-md-4">
 									<div class="form-group">
                     <h5>Children</h5>
-										<select class="form-control">
+										<select class="form-control" v-model="children">
 											<option>0</option>
 											<option>1</option>
 											<option>2</option>
@@ -134,7 +166,7 @@ export default {
 								</div>
 							</div>
 							<div class="form-btn">
-								<button class="submit-btn">Book</button>
+								<button class="submit-btn" @click="submit($event)">Book</button>
 							</div>
 						</form>
 					</div>
