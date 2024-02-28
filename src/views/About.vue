@@ -24,7 +24,7 @@ export default {
 
 <template>
   <div class="container flex-col" id="characters">
-    <h2 class="custom-text">Characters</h2>
+    <h2 class="custom-text">Staff</h2>
     <div class="character-row">
       <div
         v-for="(character, index) in characters"
@@ -83,7 +83,7 @@ export default {
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
-  color: #eed25a;
+  color: white;
 }
 
 
@@ -103,14 +103,13 @@ export default {
   background-color: #fffbe7;
   margin: 15% auto; 
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 50px;
   max-width: 600px;
   position: relative;
 }
 
 .close {
-  
-  width: 80px;
+  width: 100px;
   height: 50px;
   font-size: 20px;
   font-weight: bold;
@@ -119,7 +118,7 @@ export default {
   color: #ffffff;
   background-color: #907c57;
   box-shadow: 0px 4px #63563b;
-  border-radius: 10px;
+  border-radius: 20px;
   border: 1px solid #63563b;
 }
 
