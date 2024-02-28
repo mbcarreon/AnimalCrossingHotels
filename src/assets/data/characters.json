@@ -1,0 +1,48 @@
+[
+  {
+    "name": "Tom Nook",
+    "image": "/src/assets/images/tomNook.png",
+    "description": "Tom Nook is a tanuki character who plays the role of both a shop owner and real estate broker. He is a staple character in the Animal Crossing series, often seen in his green leaf apron and spectacles."
+  },
+  {
+    "name": "Isabelle",
+    "image": "/src/assets/images/isabelle.png",
+    "description": "Isabelle is a friendly and hardworking dog character who serves as the secretary to the player character's mayor in Animal Crossing: New Leaf. She is known for her cheerful and helpful demeanor."
+  },
+  {
+    "name": "KK Slider",
+    "image": "/src/assets/images/kkSlider.png",
+    "description": "KK Slider, also known as Totakeke, is a white dog character who is a wandering musician in the Animal Crossing series. He performs concerts on Saturday nights in the games, playing various genres of music."
+  },
+  {
+    "name": "Blathers",
+    "image": "/src/assets/images/blathers.png",
+    "description": "Blathers is an owl character who serves as the curator of the museum in Animal Crossing. He is passionate about collecting and displaying fossils, fish, insects, and art for the player to enjoy."
+  },
+
+  {
+    "name": "Digby",
+    "image": "/src/assets/images/digby.png",
+    "description": "Digby is a loyal and polite dog character who works as an assistant to the Happy Home Showcase in Animal Crossing. He is often seen accompanying his sister Isabelle and helps manage the showcase for players to visit."
+  },
+  {
+    "name": "Lottie",
+    "image": "/src/assets/images/lottie.png",
+    "description": "Lottie is a peppy otter character who works as a real estate agent in Animal Crossing: Happy Home Designer. She is passionate about interior design and helps players design and decorate homes for their animal neighbors."
+  },
+  {
+    "name": "Lyle",
+    "image": "/src/assets/images/lyle.png",
+    "description": "Lyle is often depicted as secretive and enigmatic. He appears to be always on the lookout for potential customers, offering insurance policies for various situations."
+  },
+  {
+    "name": "Timmy and Tommy",
+    "image": "/src/assets/images/timTom.png",
+    "description": "They’re both equally adorable! Timmy is the older brother and Tommy is the younger brother. Timmy & Tommy work hard at running the shop after learning the ropes from their mentor, Tom Nook."
+  },
+  {
+    "name": "Villagers",
+    "image": "/src/assets/images/villagers.png",
+    "description": "You’re just the mayor this town needs to make it a great place to live. Build a house, make some animal friends, catch fish and bugs, and enjoy some wonderful surprises. It really isn’t a tough job. "
+  }
+]
