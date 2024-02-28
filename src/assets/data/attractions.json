@@ -5,5 +5,21 @@
     "description": "Step into the Able Sisters' tailor shop and immerse yourself in a world of fashion and creativity. With their curated collection of clothing and accessories, you can express your unique style and personality, turning every stroll through the charming cottages of Animal Crossing into a runway-worthy event.",
     "backgroundColor": "#c2dc64",
     "color": "#7c973A"
+  },
+
+  {
+    "name": "Brewster Coffee House",
+    "image": "/src/assets/images/coffeeHouse.png",
+    "description": "Where every cup tells a tale of rich flavors and cozy conversations. Step into our den of warmth and aroma, where the comforting embrace of freshly brewed coffee awaits you amidst rustic charm.",
+    "backgroundColor": "#d27d2d",
+    "color": "#7b3f00"
+  },
+
+  {
+    "name": "Wildflower Grove Campsite",
+    "image": "/src/assets/images/camping.png",
+    "description": "With nothing but a tent and your trusty new NookPhone, life will be a tad rustic to start with. But don’t worry! With a little elbow grease, the island can become somewhere you’re proud to call home. As they say, if you want things just right, there’s really only one option: do it yourself!",
+    "backgroundColor": "#fffaa0",
+    "color": "#ffc000"
   }
 ]
