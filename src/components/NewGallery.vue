@@ -12,6 +12,7 @@ import Scene10 from '@/assets/images/Scene10.jpg';
 import Scene11 from '@/assets/images/Scene11.jpg';
 import Scene12 from '@/assets/images/Scene12.jpg';
 
+
 export default {
   props: ['images'],
   methods: {
@@ -39,7 +40,7 @@ export default {
           return Scene10;
         case 'Scene11.jpg':
           return Scene11;
-        case 'Scene12.jpg':
+        case "Scene12.jpg":
           return Scene12;
         default:
           return null;

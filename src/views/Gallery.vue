@@ -1,9 +1,13 @@
 
-Alanis Charm
 <script>
 import imageData from "../assets/data/images.json";
+import NewGallery from "../components/NewGallery.vue";
+
 
 export default {
+components:{
+    NewGallery
+},
   data() {
     return {
       images: imageData
@@ -16,13 +20,9 @@ export default {
   <div class="content">
     <div class="container flex-col">
       <h2 class="custom-text">Gallery</h2>
-      <div class="container flex-row" id="gallery">
-        <div class="image" v-for="(image, index) in images" :key="index">
-          <img :src="image.src" width="100%">
+            <NewGallery :images="images" />
         </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <style scoped>

@@ -203,31 +203,6 @@ p {
   outline: 4px solid #674d2b;
 }
 
-#gallery {
-  flex-wrap: wrap;
-  height: max-content;
-  gap: 56px;
-}
-
-#gallery .image {
-  width: max-content;
-  height: 200px;
-  padding: 16px 16px 48px 16px;
-  background-color: #fffbe7;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 0.5s;
-}
-
-#gallery img {
-  width: auto;
-  height: 100%;
-  display: block;
-}
-
-#gallery .image:hover {
-  transform: scale(1.15);
-}
 
 </style>
 
