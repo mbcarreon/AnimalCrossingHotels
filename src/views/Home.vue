@@ -2,9 +2,11 @@
   import cottageData from "../assets/data/cottages.json";
   import attractionData from "../assets/data/attractions.json";
   import PlaceContainer from "../components/PlaceContainer.vue";
+  import NewGallery from "../components/NewGallery.vue";
   export default {
     components: {
-      PlaceContainer
+      PlaceContainer,
+      NewGallery
     },
     data() {
       return {
@@ -14,6 +16,14 @@
         currentAttractionIndex: 0,
         cottageIntervalId: null,
         attractionIntervalId: null,
+        images:[
+        'Scene01.jpg',
+        'Scene02.jpg',
+        'Scene03.jpg',
+        'Scene04.jpg',
+        'Scene05.jpg',
+        'Scene06.jpg',
+      ]
       };
     },
     methods: {
@@ -57,6 +67,7 @@
         this.currentAttractionIndex = index;
         this.stopAttractionCarousel();
       },
+
     },
     mounted() {
       this.startCottageCarousel();
@@ -98,28 +109,10 @@
       </div>
     </div>
     <div class="container flex-col">
-      <h2 class="custom-text">Gallery</h2>
-      <div class="container flex-row" id="gallery">
-        <div class="image">
-          <img src="/src/assets/images/Scene01.jpg" width="100%" />
-        </div>
-        <div class="image">
-          <img src="/src/assets/images/Scene02.jpg" width="100%" />
-        </div>
-        <div class="image">
-          <img src="/src/assets/images/Scene03.jpg" width="100%" />
-        </div>
-        <div class="image">
-          <img src="/src/assets/images/Scene04.jpg" width="100%" />
-        </div>
-        <div class="image">
-          <img src="/src/assets/images/Scene05.jpg" width="100%" />
-        </div>
-        <div class="image">
-          <img src="/src/assets/images/Scene06.jpg" width="100%" />
-        </div>
-      </div>
-    </div>
+  <h2 class="custom-text">Gallery</h2>
+      <NewGallery :images="images" />
+
+</div>
     <div class="container flex-col" id="attractions">
       <h2 class="custom-text">Attractions</h2>
       <div class="container flex-row">
@@ -235,4 +228,7 @@ p {
 #gallery .image:hover {
   transform: scale(1.15);
 }
+
 </style>
+
+

@@ -1,3 +1,5 @@
+
+Alanis Charm
 <script>
 import imageData from "../assets/data/images.json";
 
