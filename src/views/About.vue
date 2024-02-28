@@ -38,7 +38,7 @@ export default {
     </div>
     <div v-if="showModal" class="modal">
       <div class="modal-content">
-        <center> <img :src="characters[currentCharacterIndex].image" :alt="characters[currentCharacterIndex].name" class="character-image" /> </center>
+        <center> <img :src="characters[currentCharacterIndex].image" :alt="characters[currentCharacterIndex].name" class="modal-image" /> </center>
         <h3>{{ characters[currentCharacterIndex].name }}</h3>
         <p>{{ characters[currentCharacterIndex].description }}</p>
         
@@ -77,6 +77,11 @@ export default {
   height: 200px;
   border-radius: 10px;
   margin-bottom: 10px;
+}
+
+.modal-image{
+  width: 150px;
+  height: 150px;
 }
 
 .character-name {
