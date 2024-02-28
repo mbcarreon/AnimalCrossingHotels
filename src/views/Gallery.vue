@@ -1,22 +1,25 @@
+<script>
+import imageData from "../assets/data/images.json";
+
+export default {
+  data() {
+    return {
+      images: imageData
+    };
+  }
+};
+</script>
+
 <template>
   <div class="content">
     <div class="container flex-col">
-    <h2 class="custom-text">Gallery</h2>
-    <div class="container flex-row" id="gallery">
-      <div class="image"><img src="/src/assets/images/Scene01.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene02.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene03.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene04.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene05.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene06.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene07.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene08.png" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene09.png" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene10.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene11.jpg" width="100%"></div>
-      <div class="image"><img src="/src/assets/images/Scene12.jpg" width="100%"></div>
+      <h2 class="custom-text">Gallery</h2>
+      <div class="container flex-row" id="gallery">
+        <div class="image" v-for="(image, index) in images" :key="index">
+          <img :src="image.src" width="100%">
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 </template>
 
