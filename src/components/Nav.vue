@@ -7,7 +7,7 @@ import { RouterLink } from 'vue-router'
     <RouterLink to="/" active-class="active">Home</RouterLink>
     <RouterLink to="/cottages" active-class="active">Cottages</RouterLink>
     <RouterLink to="/gallery" active-class="active">Gallery</RouterLink>
-    <RouterLink to="/about" active-class="active">About</RouterLink>
+    <RouterLink to="/about" active-class="active">Staff</RouterLink>
   </div>
 </template>
 
